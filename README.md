@@ -24,7 +24,7 @@ If the uploaded or scanned image is not a valid Indian Voter ID, the app display
 
 ## 📸 Screenshots
 
-> Replace the image paths with your actual screenshot file paths inside the project.
+
 
 <img width="1080" height="2340" alt="image" src="https://github.com/user-attachments/assets/6d377458-4054-4804-aaca-e80ae6fefa0c" />
 
