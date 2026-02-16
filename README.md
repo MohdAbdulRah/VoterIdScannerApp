@@ -1,50 +1,132 @@
-# Welcome to your Expo app 👋
+# 🗳️ VoterID Scanner App (India Only)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native (Expo) mobile application that scans or uploads an **Indian Voter ID card** and extracts the **Voter ID (EPIC) number** using an ML-based text recognition library.
 
-## Get started
+If the uploaded or scanned image is not a valid Indian Voter ID, the app displays:
 
-1. Install dependencies
+> ❌ **Invalid Voter ID**
 
-   ```bash
-   npm install
-   ```
+⚠️ This application works **only for Indian Voter ID cards** issued by the :contentReference[oaicite:0]{index=0}.
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🚀 Features
 
-In the output, you'll find options to open the app in a
+- 📷 Scan Voter ID using Camera  
+- 🖼️ Upload Voter ID from Gallery  
+- 🤖 ML-based Text Recognition (OCR)  
+- 🔍 Extracts EPIC (Voter ID) Number automatically  
+- ✅ Validates Indian Voter ID format  
+- ❌ Displays "Invalid Voter ID" for incorrect uploads  
+- 🇮🇳 Works only for Indian IDs  
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📸 Screenshots
 
-## Get a fresh project
+> Replace the image paths with your actual screenshot file paths inside the project.
 
-When you're ready, run:
+<img width="1080" height="2340" alt="image" src="https://github.com/user-attachments/assets/6d377458-4054-4804-aaca-e80ae6fefa0c" />
 
-```bash
-npm run reset-project
+<img width="1080" height="2340" alt="image" src="https://github.com/user-attachments/assets/1fb35671-c68e-4428-bb52-b35baf43996a" />
+
+
+---
+
+
+
+## 🛠️ Tech Stack
+
+- **React Native**
+- **Expo**
+- **ML Kit / Expo Text Recognition**
+- **JavaScript / TypeScript**
+
+---
+
+## 🧠 How It Works
+
+1. User selects:
+   - 📷 Capture from Camera  
+   - 🖼️ Upload from Gallery  
+
+2. The image is processed using an ML-based OCR library.
+
+3. Extracted text is scanned for EPIC format:
+
+Format: 3 Alphabet Letters + 7 Digits
+Example: ABC1234567
+
+
+4. If pattern matches:
+   - ✅ Voter ID Number is displayed.
+   
+5. If pattern does not match:
+   - ❌ "Invalid Voter ID" message is shown.
+
+---
+
+## 🔐 Validation Logic
+
+```javascript
+const voterIdRegex = /^[A-Z]{3}[0-9]{7}$/;
 ```
+Validation Rules:
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Must contain 3 uppercase letters
 
-## Learn more
+Followed by 7 digits
 
-To learn more about developing your project with Expo, look at the following resources:
+No extra characters allowed
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## 📦 Installation
+git clone https://github.com/yourusername/voterid-scanner.git
+cd voterid-scanner
+npm install
+npx expo start
 
-## Join the community
+## 📱 Permissions Required
+Camera Access
 
-Join our community of developers creating universal apps.
+Media Library Access
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Expo automatically handles permission prompts.
+
+## ❗ Error Handling
+
+| Scenario              | Response                          |
+|-----------------------|-----------------------------------|
+| Image not clear       | Shows scanning error              |
+| Not a Voter ID card   | Displays ❌ Invalid Voter ID      |
+| No text detected      | Prompts user to try again         |
+| Wrong ID format       | Displays ❌ Invalid Voter ID      |
+
+
+## 📌 Limitations
+Works only for Indian EPIC format
+
+Image must be clear and readable
+
+Does not verify with government database
+
+Offline validation only (format-based)
+
+## 🔮 Future Enhancements
+Aadhaar & PAN Card Support
+
+Backend verification integration
+
+Auto-cropping Voter ID region
+
+Improved AI accuracy
+
+Dark mode support
+
+## 📄 License
+This project is for educational and demonstration purposes only.
+
+It is not affiliated with the Government of India or the Election Commission.
+
+## 👨‍💻 Author
+Developed by Mohd Abdul Rahman
+React Native | Expo | ML Enthusiast
